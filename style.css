@@ -1,0 +1,171 @@
+:root{
+    --white-base: #fff;
+    --white-slate-100: #f1f5f9;
+
+    --black-base: #000;
+    --black-slate-100: #0a1e23;
+    --black-slate-300: #333;
+
+    --orange-slate-500: #fdba74;
+    --orange-slate-200: #fef9c3;
+    --red-slate-300: #fca5a5;
+    --red-slate-500: #ef4444;
+
+    --yellow-slate-100: #bef264;
+    --yellow-slate-300: #84cc16;
+    
+    --green-slate-600: #16a34a; 
+    --green-slate-700: #1a2e05;
+    --green-slate-900: #052e16;
+
+    --blue-slate-400: #1e1b4b;
+    --blue-slate-700: #082f49;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease-in-out;
+}
+
+body{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: linear-gradient( to right, var(--green-slate-600), var(--yellow-slate-100));
+}
+
+p{
+    text-align: center;
+    color: var(--white-base);
+    font-size: large;
+}
+p.dark{
+    color: var(--black-base)
+}
+.container{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
+.calculator{
+    position: relative;
+    height: auto;
+    width: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px #000;
+}
+
+#display{
+    margin: 0 30px;
+    height: 150px;
+    width: auto;
+    /* max-width: 270px; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    font-size: 30px;
+    margin-bottom: 20px;
+    overflow-x: scroll;
+}
+#display::-webkit-scrollbar{
+    display: block;
+    height: 3px;
+}
+
+.buttons{
+    display: grid;
+    gap: 5px;
+}
+button{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: none;
+    margin: 5px;
+    font-size: larger;
+    cursor: pointer;
+}
+button:hover{
+    transform: scale(1.1);
+    transition: none;
+}
+
+
+.theme-toggler{
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: var(--white-base);
+    cursor: pointer;
+    z-index: 1;
+}
+/*To Dark-mode */
+.theme-toggler.active{
+    color: var(--black-slate-300);
+}
+/*To Light-mode */
+.theme-toggler.active::before{
+    background-color: var(--white-base);
+}
+
+.theme-toggler::before{
+    content: '';
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--black-slate-300);
+    z-index: -1;
+}
+
+/* Light-theme */
+.calculator{
+    background-color: var(--white-base);
+}
+#display {
+    color: var(--black-base);
+}
+button#clear,button#backspace{
+    background-color: var(--red-slate-300);
+    color: var(--red-slate-500);
+}
+button.operator{
+    background-color: var(--orange-slate-500);
+    color: var(--red-slate-500);
+}
+button.operand{
+    background-color: var(--orange-slate-200);
+    color: var(--yellow-slate-300);
+}
+button.equal{
+    background-color: var(--green-slate-600);
+    color: var(--white-slate-100);
+}
+
+/* Dark-theme */
+.calculator.dark{
+    background-color: var(--black-slate-100);
+}
+.dark #display{
+    color: var(--white-slate-100);
+  }
+.dark button#clear,.dark button#backspace{
+    background-color: var(--blue-slate-400);
+    color: var(--red-slate-500);
+}
+.dark button.operator{
+    background-color: var(--blue-slate-700);
+    color: var(--red-slate-500);
+}
+.dark button.operand{
+    background-color: var(--green-slate-700);
+    color: var(--yellow-slate-100);
+}
+.dark button.equal{
+    background-color: var(--green-slate-900);
+    color: var(--yellow-slate-100);
+}
